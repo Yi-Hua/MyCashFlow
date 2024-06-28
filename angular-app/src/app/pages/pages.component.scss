@@ -7,3 +7,16 @@ mat-toolbar {
     padding: 0 2px;
   }
 }
+
+#app-sidenav-content {
+  background-color: lightgray;
+  height: calc(100vh - 64px);
+
+  .app-content-margin {
+    margin-left: 60px;
+  }
+
+  #page-content {
+    margin-top: 20px;
+  }
+}

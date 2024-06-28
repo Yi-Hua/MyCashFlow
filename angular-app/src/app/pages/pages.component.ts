@@ -1,19 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { SharedModule } from '../shared/shared.module'
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { TranslateService } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-pages',
   standalone: true,
-  imports: [ RouterOutlet, MatToolbarModule, MatSidenavModule, SharedModule,],
+  imports: [ RouterOutlet, MatToolbarModule, MatSidenavModule, SharedModule],
   templateUrl: './pages.component.html',
   styleUrl: './pages.component.scss'
 })
-export class PagesComponent {
-  toggleMenu(): void{
+
+export class PagesComponent implements OnInit{
+  isNavOpened = false;
+
+  constructor(private translate: TranslateService, private http: HttpClient) {}
+
+  ngOnInit(): void { }
+
+  toggleMenu(): void {
+    this.isNavOpened = !this.isNavOpened
     console.log('Menu!')
   }
+
 }

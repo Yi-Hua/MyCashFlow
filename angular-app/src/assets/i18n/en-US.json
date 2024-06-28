@@ -1,0 +1,75 @@
+{
+  "app_name": "My Cash Flow",
+  "general": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "confirm": "Confirm",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "settings": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "help": "Help",
+    "exit": "Exit",
+    "login": "Login",
+    "logout": "Logout",
+    "register": "Register",
+    "username": "Username",
+    "password": "Password",
+    "email": "Email",
+    "search": "Search",
+    "home": "Home"
+  },
+  "pages": {
+    "dashboard": {
+      "title": "Dashboard",
+      "overview": "Overview",
+      "total_income": "Total Income",
+      "total_expense": "Total Expense",
+      "net_balance": "Net Balance"
+    },
+    "transactions": {
+      "title": "Transactions",
+      "add_transaction": "Add Transaction",
+      "edit_transaction": "Edit Transaction",
+      "delete_transaction": "Delete Transaction",
+      "transaction_date": "Transaction Date",
+      "category": "Category",
+      "amount": "Amount",
+      "description": "Description",
+      "income": "Income",
+      "expense": "Expense"
+    },
+    "reports": {
+      "title": "Reports",
+      "monthly_report": "Monthly Report",
+      "annual_report": "Annual Report",
+      "custom_report": "Custom Report",
+      "export_csv": "Export CSV",
+      "export_pdf": "Export PDF"
+    },
+    "budget": {
+      "title": "Budget",
+      "set_budget": "Set Budget",
+      "edit_budget": "Edit Budget",
+      "budget_amount": "Budget Amount",
+      "budget_period": "Budget Period",
+      "actual_spent": "Actual Spent",
+      "remaining_budget": "Remaining Budget"
+    },
+    "settings": {
+      "title": "Settings",
+      "profile": "Profile",
+      "preferences": "Preferences",
+      "account": "Account",
+      "notifications": "Notifications",
+      "security": "Security"
+    }
+  }
+}

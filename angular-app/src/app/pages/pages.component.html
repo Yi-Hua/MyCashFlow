@@ -1,4 +1,4 @@
-<mat-toolbar  id="header-toolbar">
+<mat-toolbar id="header-toolbar">
   <button mat-icon-button (click)="toggleMenu()">
     <mat-icon>menu</mat-icon>
   </button>
@@ -13,19 +13,17 @@
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav [opened]="!isNavOpened">
-    <div fxLayout="col">
-      <button mat-icon-button fxLayout="row" matTooltip="{{'general.save'|translate}}">
-        <mat-icon>home</mat-icon>
-      </button>
-      <div>HOME</div>
-      <button mat-icon-button >
-        <mat-icon>favorite</mat-icon>
+  <mat-sidenav #sidenav [opened]="isNavOpened">
+    <div *ngFor="let node of menu"  fxLayout="column">
+      <button mat-icon-button [matTooltip]="'general.' + node.key | translate" [routerLink]="node.href">
+        <mat-icon>{{ node.matIcon }}</mat-icon>
       </button>
     </div>
   </mat-sidenav>
   <mat-sidenav-content id="app-sidenav-content">
-    <router-outlet />
+    <div class="router-content">
+      <router-outlet />
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

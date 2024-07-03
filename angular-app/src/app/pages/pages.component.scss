@@ -1,5 +1,6 @@
 mat-toolbar {
-  background-color:bisque ;
+  height: 64px;
+  background-color: rgb(240, 240, 240) ;
   font-weight: normal;
   font-size: 16px;
 
@@ -9,14 +10,23 @@ mat-toolbar {
 }
 
 #app-sidenav-content {
-  background-color: lightgray;
+  // background-color: lightgray;
   height: calc(100vh - 64px);
+
+  .router-content {
+    display: flex;
+    justify-content: center;
+
+    width: calc(100vw - 168px);
+    margin: 0 64px 0 64px;
+    padding: 20px;
+  }
 
   .app-content-margin {
     margin-left: 60px;
   }
 
-  #page-content {
-    margin-top: 20px;
+  #sidenav{
+    width: 64px;
   }
 }

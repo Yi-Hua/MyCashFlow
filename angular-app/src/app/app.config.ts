@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { provideHttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'pages/home', pathMatch: 'full' },
@@ -34,7 +35,7 @@ export const appConfig: ApplicationConfig = {
           deps: [HttpClient]
         }
       }),
-      BrowserAnimationsModule // 确保这里导入 BrowserAnimationsModule
-    )
+      BrowserAnimationsModule
+    ), provideAnimationsAsync()
   ]
 };

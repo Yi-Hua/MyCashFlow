@@ -1,4 +1,4 @@
-mat-toolbar {
+.mat-toolbar {
   height: 64px;
   background-color: rgb(240, 240, 240) ;
   font-weight: normal;
@@ -10,7 +10,6 @@ mat-toolbar {
 }
 
 #app-sidenav-content {
-  // background-color: lightgray;
   height: calc(100vh - 64px);
 
   .router-content {
@@ -25,8 +24,11 @@ mat-toolbar {
   .app-content-margin {
     margin-left: 60px;
   }
+}
 
-  #sidenav{
-    width: 64px;
-  }
+.mat-drawer {
+  width: 48px !important;
+  background-color: #fafafa;
+  box-shadow: none;
+
 }

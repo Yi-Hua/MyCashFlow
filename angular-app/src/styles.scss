@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-mdc-card {
+  width: calc(100vw - 98px);
+  min-height: 200px;
+  overflow-x: auto;
+  background-color: #fafafa;
+
+  .mat-mdc-card-header {
+    height: 56px;
+    padding: 16px 0px 16px 16px;
+
+    .mat-mdc-card-title{
+      font-size: 18px;
+      font-weight: 500;
+    }
+  }
+}
+
+

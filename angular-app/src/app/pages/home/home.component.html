@@ -1,1 +1,24 @@
-<p>home works!</p>
+<!-- <div class="card">
+  <div>Account Overview</div>
+  <div>TWD 30,000</div>
+</div> -->
+
+<mat-card appearance="outlined">
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-card-header fxFlex="95">
+      <mat-card-title> {{ transPage + 'account_overview' | translate }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-icon-button (click)="create()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-card-actions>
+  </div>
+  <mat-card-content>
+    <div fxLayout="column">
+      <div>{{ 'general.twd' | translate }}</div>
+      <div>{{ account.total }}</div>
+    </div>
+
+</mat-card-content>
+</mat-card>

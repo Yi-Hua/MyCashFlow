@@ -1,6 +1,6 @@
 {
   "app_name": "My Cash Flow",
-  "general": {
+  "button":{
     "save": "Save",
     "cancel": "Cancel",
     "delete": "Delete",
@@ -11,7 +11,9 @@
     "ok": "OK",
     "close": "Close",
     "back": "Back",
-    "next": "Next",
+    "next": "Next"
+  },
+  "general": {
     "settings": "Settings",
     "language": "Language",
     "theme": "Theme",
@@ -24,12 +26,13 @@
     "password": "Password",
     "email": "Email",
     "search": "Search",
-    "home": "Home"
+    "home": "Home",
+    "twd": "TWD"
   },
   "pages": {
-    "dashboard": {
-      "title": "Dashboard",
-      "overview": "Overview",
+    "home": {
+      "title": "Home",
+      "account_overview": "Account Overview",
       "total_income": "Total Income",
       "total_expense": "Total Expense",
       "net_balance": "Net Balance"

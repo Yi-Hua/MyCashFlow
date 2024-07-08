@@ -5,6 +5,7 @@ import { FlexLayoutModule, FlexModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatCardModule } from '@angular/material/card';
 import { TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
@@ -17,6 +18,7 @@ import { TranslateModule} from '@ngx-translate/core';
     FlexLayoutModule,
     FlexModule,
     MatTooltipModule,
+    MatCardModule,
   ],
   exports: [
     CommonModule,
@@ -26,6 +28,7 @@ import { TranslateModule} from '@ngx-translate/core';
     FlexLayoutModule,
     FlexModule,
     MatTooltipModule,
+    MatCardModule,
   ]
 })
 export class SharedModule { }

@@ -1,5 +1,5 @@
 <mat-toolbar id="header-toolbar">
-  <button mat-icon-button (click)="toggleMenu()">
+  <button mat-icon-button (click)="drawer.toggle()">
     <mat-icon>menu</mat-icon>
   </button>
   <span>{{ "app_name" | translate}}</span>
@@ -12,8 +12,24 @@
   </button>
 </mat-toolbar>
 
-<mat-sidenav-container>
-  <mat-sidenav #sidenav [opened]="isNavOpened">
+<mat-drawer-container autosize [hasBackdrop]="false">
+  <mat-drawer #drawer mode="over" >
+    <div *ngFor="let node of menu"  fxLayout="column">
+      <button mat-icon-button [matTooltip]="'general.' + node.key | translate" [routerLink]="node.href">
+        <mat-icon>{{ node.matIcon }}</mat-icon>
+      </button>
+    </div>
+  </mat-drawer>
+
+  <div id="app-sidenav-content">
+    <div class="router-content">
+      <router-outlet />
+    </div>
+  </div>
+
+</mat-drawer-container>
+<!-- <mat-sidenav-container>
+  <mat-sidenav #sidenav [opened]="!isNavOpened" style="width: 46px; border-radius: 0; border: 0px;">
     <div *ngFor="let node of menu"  fxLayout="column">
       <button mat-icon-button [matTooltip]="'general.' + node.key | translate" [routerLink]="node.href">
         <mat-icon>{{ node.matIcon }}</mat-icon>
@@ -26,4 +42,4 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
+ -->

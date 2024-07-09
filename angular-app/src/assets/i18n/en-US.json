@@ -1,37 +1,46 @@
 {
   "app_name": "My Cash Flow",
-  "button":{
-    "save": "Save",
-    "cancel": "Cancel",
-    "delete": "Delete",
-    "edit": "Edit",
-    "confirm": "Confirm",
-    "yes": "Yes",
-    "no": "No",
-    "ok": "OK",
-    "close": "Close",
-    "back": "Back",
-    "next": "Next"
-  },
   "general": {
-    "settings": "Settings",
-    "language": "Language",
-    "theme": "Theme",
-    "help": "Help",
-    "exit": "Exit",
-    "login": "Login",
-    "logout": "Logout",
-    "register": "Register",
-    "username": "Username",
-    "password": "Password",
-    "email": "Email",
-    "search": "Search",
-    "home": "Home",
-    "twd": "TWD"
+    "common":{
+      "settings": "Settings",
+      "language": "Language",
+      "theme": "Theme",
+      "help": "Help",
+      "exit": "Exit",
+      "login": "Login",
+      "logout": "Logout",
+      "register": "Register",
+      "username": "Username",
+      "password": "Password",
+      "email": "Email",
+      "search": "Search",
+      "home": "Home",
+      "twd": "TWD"
+    },
+    "button":{
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "edit": "Edit",
+      "confirm": "Confirm",
+      "yes": "Yes",
+      "no": "No",
+      "ok": "OK",
+      "close": "Close",
+      "back": "Back",
+      "next": "Next"
+    }
   },
   "pages": {
     "home": {
       "title": "Home",
+      "account_overview": "Account Overview",
+      "total_income": "Total Income",
+      "total_expense": "Total Expense",
+      "net_balance": "Net Balance"
+    },
+    "accounts": {
+      "title": "Accounts Management",
       "account_overview": "Account Overview",
       "total_income": "Total Income",
       "total_expense": "Total Expense",

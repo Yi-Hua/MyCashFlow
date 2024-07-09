@@ -1,6 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module'
+import { HttpClient } from '@angular/common/http';
+import { PostService } from '@shared/post.service';
+
+interface Expense {
+  id: number;
+  description: string;
+  amount: number;
+}
+
 
 @Component({
   selector: 'app-home',
@@ -11,6 +20,9 @@ import { SharedModule } from '../../shared/shared.module'
 })
 export class HomeComponent implements OnInit{
   transPage = 'pages.home.';
+
+  expenses: Expense[] = [];
+
   account = {
     //name: "",
     total: 600000,
@@ -21,14 +33,22 @@ export class HomeComponent implements OnInit{
     cashback_rate:"", //(DECIMAL(5, 2), Nullable)
     created_at:"", //(TIMESTAMP, Default CURRENT_TIMESTAMP)
   }
-  constructor(){}
-
+  constructor(private http: HttpClient,
+    private _postService: PostService,
+  ) {}
+  
   ngOnInit(): void {
-    console.log('Home!!!')
+    this.getExpenses();
   }
 
   create(): void {
 
   }
 
+  getExpenses(): void {
+    this._postService.sendGet('expenses').subscribe(data => {
+      console.log(data);
+      this.expenses = data;
+    });
+  }
 }

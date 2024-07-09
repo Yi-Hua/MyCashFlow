@@ -16,8 +16,11 @@
   </div>
   <mat-card-content>
     <div fxLayout="column">
-      <div>{{ 'general.twd' | translate }}</div>
+      <div>{{ 'general.common.twd' | translate }}</div>
       <div>{{ account.total }}</div>
+      <li *ngFor="let expense of expenses">
+        {{ expense.description }}: {{ expense.amount | currency }}
+      </li>
     </div>
 
 </mat-card-content>

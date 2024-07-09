@@ -15,7 +15,8 @@
 <mat-drawer-container autosize [hasBackdrop]="false">
   <mat-drawer #drawer mode="over" >
     <div *ngFor="let node of menu"  fxLayout="column">
-      <button mat-icon-button [matTooltip]="'general.' + node.key | translate" [routerLink]="node.href">
+      <button mat-icon-button [matTooltip]="'pages.' + node.key + '.title' | translate"
+      [routerLink]="node.href">
         <mat-icon>{{ node.matIcon }}</mat-icon>
       </button>
     </div>
@@ -28,18 +29,3 @@
   </div>
 
 </mat-drawer-container>
-<!-- <mat-sidenav-container>
-  <mat-sidenav #sidenav [opened]="!isNavOpened" style="width: 46px; border-radius: 0; border: 0px;">
-    <div *ngFor="let node of menu"  fxLayout="column">
-      <button mat-icon-button [matTooltip]="'general.' + node.key | translate" [routerLink]="node.href">
-        <mat-icon>{{ node.matIcon }}</mat-icon>
-      </button>
-    </div>
-  </mat-sidenav>
-  <mat-sidenav-content id="app-sidenav-content">
-    <div class="router-content">
-      <router-outlet />
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
- -->

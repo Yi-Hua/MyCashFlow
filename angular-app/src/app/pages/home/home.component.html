@@ -9,17 +9,31 @@
       <mat-card-title> {{ transPage + 'account_overview' | translate }}</mat-card-title>
     </mat-card-header>
     <mat-card-actions>
-      <button mat-icon-button (click)="create()">
+      <button mat-icon-button [matTooltip]="'pages.button.delete' | translate" (click)="delete(1)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-card-actions>
+    <mat-card-actions>
+      <button mat-icon-button [matTooltip]="'pages.button.update' | translate" (click)="update(data2)">
+        <mat-icon>update</mat-icon>
+      </button>
+    </mat-card-actions>
+    <mat-card-actions>
+      <button mat-icon-button [matTooltip]="'pages.button.create' | translate" (click)="create(data3)">
         <mat-icon>add</mat-icon>
+      </button>
+    </mat-card-actions>
+    <mat-card-actions>
+      <button mat-icon-button (click)="getTransactions()">
+        <mat-icon>refresh</mat-icon>
       </button>
     </mat-card-actions>
   </div>
   <mat-card-content>
     <div fxLayout="column">
       <div>{{ 'general.common.twd' | translate }}</div>
-      <div>{{ account.total }}</div>
-      <li *ngFor="let expense of expenses">
-        {{ expense.description }}: {{ expense.amount | currency }}
+      <li *ngFor="let data of transactionsData">
+        {{ data.name }}: {{ data.amount | currency }}
       </li>
     </div>
 

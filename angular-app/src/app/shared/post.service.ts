@@ -16,4 +16,19 @@ export class PostService {
       });
   }
 
+  sendPost(url: string, content: { [key: string]: any } | FormData): Observable<any> {
+    return this.http.post<{ [key: string]: any }>(this.apiUrl + url, content)
+  }
+
+  sendPatch(url: string, content: { [key: string]: any } | FormData): Observable<any> {
+    return this.http.patch<{ [key: string]: any }>(this.apiUrl + url, content);
+  }
+
+  sendPut(url: string, content: { [key: string]: any } | FormData): Observable<any> {
+    return this.http.put<{ [key: string]: any }>(this.apiUrl + url, content)
+  }
+
+  sendDelete(url: string, id: number): Observable<any> {
+    return this.http.delete<any>(this.apiUrl + `${url}${id}`);
+  }
 }

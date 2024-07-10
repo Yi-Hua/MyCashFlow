@@ -1,4 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use '@angular/material/core/theming/definition' as define;
+
+@include mat.core();
+
+// 定義調色板
+$your-app-primary: mat.define-colors((
+  primary: mat.$green-palette,
+));
+
+// 定義主題
+$your-app-theme: define.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$red-palette,
+  ),
+));
+
+// 應用主到根元素
+:host {
+  // @include mat.angular-material-theme($your-app-theme);
+  @include mat.all-component-themes($your-app-theme);
+}
+
 
 html, body {
   height: 100%;

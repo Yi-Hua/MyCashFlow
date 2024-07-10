@@ -44,7 +44,15 @@
       "account_overview": "Account Overview",
       "total_income": "Total Income",
       "total_expense": "Total Expense",
-      "net_balance": "Net Balance"
+      "account": "Account",
+      "balance": "Balance",
+      "payment_type": "Payment Type",
+      "cash": "Cash",
+      "bank": "Bank",
+      "credit_card": "Credit Card",
+      "cashback_type": "Cashback Type",
+      "cashback": "Cashback",
+      "points": "Points"
     },
     "transactions": {
       "title": "Transactions",

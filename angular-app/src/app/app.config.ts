@@ -15,6 +15,7 @@ export const routes: Routes = [
   { path: 'pages', component: PagesComponent,
     children: [
       { path: 'home', loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)},
+      { path: 'accounts', loadComponent: () => import('./pages/accounts/accounts.component').then(m => m.AccountsComponent)},
     ]
   },
   { path: '**', redirectTo: 'pages' },

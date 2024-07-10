@@ -6,6 +6,8 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
@@ -19,6 +21,8 @@ import { TranslateModule} from '@ngx-translate/core';
     FlexModule,
     MatTooltipModule,
     MatCardModule,
+    MatExpansionModule,
+    MatTabsModule,
   ],
   exports: [
     CommonModule,
@@ -29,6 +33,8 @@ import { TranslateModule} from '@ngx-translate/core';
     FlexModule,
     MatTooltipModule,
     MatCardModule,
+    MatExpansionModule,
+    MatTabsModule,
   ]
 })
 export class SharedModule { }

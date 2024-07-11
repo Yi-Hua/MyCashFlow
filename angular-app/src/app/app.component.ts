@@ -19,7 +19,6 @@ export class AppComponent implements OnInit{
     this._translate.use(lang);
   }
   ngOnInit(): void {
-    console.log(this._translate.instant('general.ok'));
   }
 
 }

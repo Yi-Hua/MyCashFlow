@@ -1,4 +1,4 @@
-CREATE TABLE Transactions (
+CREATE TABLE IF NOT EXISTS Transactions (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
     category_id INTEGER,

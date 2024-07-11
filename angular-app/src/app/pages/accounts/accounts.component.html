@@ -5,7 +5,7 @@
         <mat-card-title> {{ transPage + 'account_overview' | translate }}</mat-card-title>
       </mat-card-header>
       <mat-card-actions>
-        <button mat-icon-button (click)="create()">
+        <button mat-icon-button (click)="create(data)">
           <mat-icon>add</mat-icon>
         </button>
       </mat-card-actions>
@@ -15,12 +15,12 @@
       <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
         <div  *ngFor="let type of paymentType">
           <mat-tab [label]="transPage + type | translate">
-            <mat-accordion class="example-headers-align" multi *ngFor="let acc of data">
+            <mat-accordion class="example-headers-align" multi *ngFor="let acc of accountsData">
               <mat-expansion-panel *ngIf="acc.method_type === type">
                 <mat-expansion-panel-header>
                   <mat-panel-title fxFlex="20"> {{ acc.method_name }} </mat-panel-title>
                   <mat-panel-description >
-                    <div fxFlex="30">TWD {{ acc.balance }}</div>
+                    <div fxFlex="30">TWD {{ acc.balance | number:'1.0-0'}}</div>
                     <div fxFlex="20">
                       <div *ngIf="acc.cashback_type">
                         {{ acc.cashback_rate }} %

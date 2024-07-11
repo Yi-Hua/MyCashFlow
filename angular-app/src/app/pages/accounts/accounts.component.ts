@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SharedModule } from '../../shared/shared.module'
+import { PostService } from '@shared/post.service';
+import { PaymentMethodUnit } from './accounts.model';
 
 @Component({
   selector: 'app-accounts',
@@ -12,7 +14,7 @@ import { SharedModule } from '../../shared/shared.module'
 export class AccountsComponent implements OnInit{
   transPage = 'pages.accounts.';
   paymentType = ['cash', 'bank', 'credit_card']
-
+  accountsData: PaymentMethodUnit[] = [];
   data = [
     {
       id: 1,
@@ -21,8 +23,7 @@ export class AccountsComponent implements OnInit{
       method_type: "cash",
       balance: 500,
       cashback_rate: 0,
-      cashback_type: "",
-      created_at: "",
+      cashback_type: null,
     },
     {
       id: 2,
@@ -31,8 +32,7 @@ export class AccountsComponent implements OnInit{
       method_type: "bank",
       balance: 70000,
       cashback_rate: 0,
-      cashback_type: "",
-      created_at: "",
+      cashback_type: null,
     },
     {
       id: 3,
@@ -42,7 +42,6 @@ export class AccountsComponent implements OnInit{
       balance: -1000,
       cashback_rate: 3,
       cashback_type: "cash",
-      created_at: "",
     },
     {
       id: 4,
@@ -52,7 +51,6 @@ export class AccountsComponent implements OnInit{
       balance: -1789,
       cashback_rate: 3,
       cashback_type: "points",
-      created_at: "",
     },
     {
       id: 4,
@@ -61,20 +59,45 @@ export class AccountsComponent implements OnInit{
       method_type: "cash",
       balance: 293,
       cashback_rate: 0,
-      cashback_type: "",
-      created_at: "",
+      cashback_type: null,
     }
   ]
   total = this.data.map((data) => data.balance).reduce((a, b) => a + b, 0)
 
-  constructor(){}
+  constructor(
+    private _postService: PostService,
+  ){}
 
   ngOnInit(): void {
-    console.log('accounts!!!')
+    this.getPaymentMethodsData();
   }
 
-  create(): void {
-
+  calculateTotal(): void {
+    this.accountsData.map((data) => data.balance).reduce((a, b) => a + b, 0)
   }
 
+  getPaymentMethodsData(): void {
+    this._postService.sendGet('paymentMethods').subscribe({
+      next: data => {
+        console.log("Get successful!", data);
+        this.accountsData = data;
+        this.calculateTotal()
+      },
+      error: error => {
+        console.error("Error during get:", error);
+      }
+    });
+  }
+
+  create(data: { [key: string]: any }): void {
+    this._postService.sendPost('paymentMethods', data).subscribe({
+      next: data => {
+        console.log("Post successful!", data);
+        this.getPaymentMethodsData();
+      },
+      error: error => {
+        console.error("Error during post:", error);
+      }
+    });
+  }
 }

@@ -4,7 +4,7 @@ const path = require('path');
 const router = express.Router();
 const db = require('./transactions.db');
 
-// keys
+// Keys
 const transactionKeys = ['name', 'note', 'amount', 'user_id', 'category_id', 'payment_method_id', 'type', 'date', 'created_at'];
 
 // Read the Queries SQL file
@@ -21,7 +21,7 @@ const sqlQueries = fs.readFileSync(sqlFilePath, 'utf8')
     }, {});
 
 // GET endpoint: get all transactions
-router.get('/api/transactions', (req, res) => {
+router.get('/transactions', (req, res) => {
     db.all(sqlQueries.getAll, [], (err, rows) => {
         if (err) {
             res.status(500).json({ error: err.message });
@@ -32,7 +32,7 @@ router.get('/api/transactions', (req, res) => {
 });
 
 // POST endpoint: create a transaction
-router.post('/api/transactions', (req, res) => {
+router.post('/transactions', (req, res) => {
     const data = req.body;
     const values = transactionKeys.map(key => data[key]);
 
@@ -48,7 +48,7 @@ router.post('/api/transactions', (req, res) => {
 });
 
 // PATCH endpoint: partially update a transaction
-router.patch('/api/transactions/:id', (req, res) => {
+router.patch('/transactions/:id', (req, res) => {
     const { id } = req.params;
     const data = req.body;
 
@@ -74,7 +74,7 @@ router.patch('/api/transactions/:id', (req, res) => {
 });
 
 // PUT endpoint: update a transaction
-router.put('/api/transactions/:id', (req, res) => {
+router.put('/transactions/:id', (req, res) => {
     const { id } = req.params;
     const data = req.body;
     const values = transactionKeys.map(key => data[key]);
@@ -91,7 +91,7 @@ router.put('/api/transactions/:id', (req, res) => {
 });
 
 // DELETE endpoint: delete a transaction
-router.delete('/api/transactions/:id', (req, res) => {
+router.delete('/transactions/:id', (req, res) => {
     const { id } = req.params;
     const stmt = db.prepare(sqlQueries.delete);
     stmt.run(id, function(err) {

@@ -1,43 +1,58 @@
 <h2> {{ transPage + 'title' | translate }}</h2>
 <mat-card appearance="outlined">
-    <div fxLayout="row" fxLayoutAlign="space-between center">
-      <mat-card-header fxFlex="95">
-        <mat-card-title> {{ transPage + 'account_overview' | translate }}</mat-card-title>
-      </mat-card-header>
-      <mat-card-actions>
-        <button mat-icon-button (click)="create(data)">
-          <mat-icon>add</mat-icon>
-        </button>
-      </mat-card-actions>
+  <div fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-card-header  fxFlex="95">
+      <mat-card-title> {{ transPage + 'account_overview' | translate }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <button mat-icon-button (click)="openCreateDialog()" [matTooltip]="transPage + 'create_account' | translate">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-card-actions>
+  </div>
+  <mat-card-content>
+    <div class="total-text" fxLayout="row" fxLayoutGap="16px">
+      <div>{{ 'general.common.twd' | translate }}</div>
+      <div [class.red-text]="total<0" [class.green-text]="total>=0"> {{ total | number:'1.0-0'}}</div>
     </div>
-    <mat-card-content>
-      <div>TWD {{ total | number:'1.0-0' }}</div>
-      <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
-        <div  *ngFor="let type of paymentType">
-          <mat-tab [label]="transPage + type | translate">
-            <mat-accordion class="example-headers-align" multi *ngFor="let acc of accountsData">
-              <mat-expansion-panel *ngIf="acc.method_type === type">
-                <mat-expansion-panel-header>
-                  <mat-panel-title fxFlex="20"> {{ acc.method_name }} </mat-panel-title>
-                  <mat-panel-description >
-                    <div fxFlex="30">TWD {{ acc.balance | number:'1.0-0'}}</div>
-                    <div fxFlex="20">
-                      <div *ngIf="acc.cashback_type">
-                        {{ acc.cashback_rate }} %
-                      </div>
+    <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
+      <div *ngFor="let type of paymentType">
+        <mat-tab [label]="transPage + type | translate">
+          <mat-accordion class="example-headers-align" multi *ngFor="let acc of accountsData">
+            <mat-expansion-panel *ngIf="acc.method_type === type">
+              <mat-expansion-panel-header>
+                <mat-panel-title fxFlex="20"> {{ acc.method_name }} </mat-panel-title>
+                <mat-panel-description >
+                  <div fxFlex="30" [class.red-text]="acc.original_balance<0" [class.green-text]="acc.original_balance>=0">{{ 'general.common.twd' | translate }} {{ acc.original_balance | number:'1.0-0'}}</div>
+                  <div fxFlex="20">
+                    <div *ngIf="acc.cashback_type">
+                      {{ acc.cashback_rate }} {{ 'general.unit.percentage' | translate }}
                     </div>
-                    <div fxFlex="30">
-                      <div *ngIf="acc.cashback_type">
-                        {{ transPage + acc.cashback_type | translate }} {{ transPage + 'cashback' | translate }}
-                      </div>
+                  </div>
+                  <div fxFlex="30">
+                    <div *ngIf="acc.cashback_type">
+                      {{ transPage + acc.cashback_type | translate }} {{ transPage + 'cashback' | translate }}
                     </div>
-                  </mat-panel-description>
-                </mat-expansion-panel-header>
-                  description here
-              </mat-expansion-panel>
-              </mat-accordion>
-          </mat-tab>
-        </div>
-      </mat-tab-group>
+                  </div>
+                </mat-panel-description>
+                <mat-card-actions class="panel-icon">
+                  <button mat-icon-button (click)="openDeleteDialog(acc)" [matTooltip]="transPage + 'delete_account' | translate"> <mat-icon>close</mat-icon> </button>
+                </mat-card-actions>
+              </mat-expansion-panel-header>
+              <div class="description-panel">
+                <div class="description" fxLayout="row" fxLayoutGap="16px">
+                  <div class="description-title"> {{ transPage + 'account_name' | translate }}:</div>
+                  <div class="description-content">{{ acc.method_name }} </div>
+                </div>
+                <div class="description" fxLayout="row" fxLayoutGap="16px">
+                  <div class="description-title"> {{ transPage + 'balance' | translate }}:</div>
+                  <div class="description-content"> {{ 'general.common.twd' | translate }} {{ acc.original_balance | number:'1.0-0' }} </div>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-tab>
+      </div>
+    </mat-tab-group>
   </mat-card-content>
 </mat-card>

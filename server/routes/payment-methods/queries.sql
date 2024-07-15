@@ -6,7 +6,7 @@ INSERT INTO PaymentMethods (
   user_id,
   method_name,
   method_type,
-  balance,
+  original_balance,
   cashback_rate,
   cashback_type
  )
@@ -20,7 +20,7 @@ UPDATE PaymentMethods
 SET user_id = ?,
  method_name = ?,
  method_type = ?,
- balance = ?,
+ original_balance = ?,
  cashback_rate = ?,
  cashback_type = ?,
  created_at = ?,

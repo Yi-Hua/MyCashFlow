@@ -1,0 +1,33 @@
+.dialog-content {
+  padding: 0px 24px !important;
+  min-height: 360px;
+}
+
+.dialog-title {
+  padding: 4px 24px 8px 24px;
+}
+
+.mat-mdc-form-field  {
+  margin-top: 12px;
+  // margin-bottom: -4px;
+  min-width: 248px;
+  // padding-right: 16px;
+  height: 68px !important;
+}
+
+.mat-mdc-text-field-wrapper{
+// .mdc-text-field {
+  height: 100px !important;
+}
+// .mdc-text-field--outlined
+// .mdc-text-field--invalid
+
+.mat-mdc-form-field-bottom-align {
+  margin: -24px -4px;
+}
+
+.sub-title {
+  margin-top: 12px;
+  font-size: 12px;
+  color: #757575;
+}

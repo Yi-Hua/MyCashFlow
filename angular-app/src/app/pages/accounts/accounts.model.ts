@@ -3,8 +3,8 @@ export interface PaymentMethodUnit {
   user_id: number;
   method_name: number;
   method_type: MethodType;
-  balance: number;
-  cashback_rate: string;
+  original_balance: number;
+  cashback_rate: number;
   cashback_type: CashbackType;
   created_at: string;
 }

@@ -1,0 +1,73 @@
+<h2 mat-dialog-title class="dialog-title">Create Account</h2>
+<mat-dialog-content class="dialog-content">
+  <form class="account-form" [formGroup]="accountForm" fxLayout="column" fxLayoutAlign="start start">
+    <!-- 1. Account Group -->
+    <div class="sub-title">{{ transPage + 'account' | translate }}</div >
+    <div fxLayout="row" fxLayoutGap="16px">
+      <mat-form-field class="form-field-lg" appearance="outline">
+        <mat-label #acc>{{ transPage + 'account_name' | translate }}</mat-label>
+        <input matInput formControlName="method_name" placeholder="Enter method name" required />
+        <mat-error *ngIf="accountForm.get('method_name')?.hasError('required')">
+          {{ 'general.validators.required' | translate }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-lg" appearance="outline">
+        <mat-label>{{ transPage + 'account_type' | translate }}</mat-label>
+        <mat-select formControlName="method_type" placeholder="Select account type">
+          <mat-option *ngFor="let option of methodTypeOption" [value]="option.value">{{option.text}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="accountForm.get('method_type')?.hasError('required')">
+          {{ 'general.validators.required' | translate }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!-- 2. Balance Group -->
+    <div class="sub-title">{{ transPage + 'balance' | translate }}</div >
+    <div fxLayout="row">
+      <mat-form-field class="form-field-lg" appearance="outline">
+        <mat-label>{{ transPage + 'original_balance' | translate }}</mat-label>
+        <input matInput
+          type="number"
+          formControlName="original_balance"
+          placeholder="{{ transPage + 'original_balance' | translate }}"
+          required/>
+        <mat-error *ngIf="accountForm.get('original_balance')?.hasError('required')">
+          {{ 'general.validators.required' | translate }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <!-- 3. Cashback Group -->
+    <div *ngIf="isCreditCard()">
+      <div class="sub-title">{{ transPage + 'cashback' | translate }}</div >
+      <div fxLayout="row" fxLayoutGap="16px">
+        <mat-form-field class="form-field-lg" appearance="outline">
+          <mat-label>{{ transPage + 'cashback_rate' | translate }}</mat-label>
+          <input matInput formControlName="cashback_rate" type="number" required/>
+          <mat-hint align="end"> {{ 'general.unit.percentage' | translate }} </mat-hint>
+        <mat-error *ngIf="accountForm.get('cashback_rate')?.hasError('required')">
+          {{ 'general.validators.required' | translate }}
+        </mat-error>
+        </mat-form-field>
+        <mat-form-field class="form-field-lg" appearance="outline">
+          <mat-label>{{ transPage + 'cashback_type' | translate }}</mat-label>
+          <mat-select formControlName="cashback_type" placeholder="Enter cashback type" required>
+            <mat-option *ngFor="let option of cashbackTypeOption" [value]="option.value">{{option.text}}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="accountForm.get('cashback_type')?.hasError('required')">
+            {{ 'general.validators.required' | translate }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>
+    {{ 'general.button.cancel' | translate }}</button>
+
+  <button mat-raised-button color="primary"
+    [mat-dialog-close]="false" [disabled]="accountForm.invalid"
+    dia-rightBtn (click)="create()">
+    {{ 'general.button.create' | translate }}</button>
+</mat-dialog-actions>

@@ -19,7 +19,7 @@
     },
     "button":{
       "save": "Save",
-      "cancel": "Cancel",
+      "cancel": "CANCEL",
       "delete": "Delete",
       "edit": "Edit",
       "confirm": "Confirm",
@@ -28,7 +28,18 @@
       "ok": "OK",
       "close": "Close",
       "back": "Back",
-      "next": "Next"
+      "next": "Next",
+      "create": "CREATE"
+    },
+    "unit": {
+      "percentage": "%"
+    },
+    "validators": {
+      "required": "Required",
+      "isRequired": " is required",
+      "range": "Invalid range ({{ min }} ~ {{ max }})",
+      "requireMinLength": "Must be at least {{ number }} characters long",
+      "invalid": "Invalid character(s)"
     }
   },
   "pages": {
@@ -51,8 +62,14 @@
       "bank": "Bank",
       "credit_card": "Credit Card",
       "cashback_type": "Cashback Type",
+      "cashback_rate": "Cashback Rate",
       "cashback": "Cashback",
-      "points": "Points"
+      "points": "Points",
+      "account_name": "Account Name",
+      "account_type": "Account Type",
+      "original_balance": "Original Balance",
+      "create_account": "Create Account",
+      "delete_account": "Delete Account"
     },
     "transactions": {
       "title": "Transactions",

@@ -3,9 +3,45 @@
   box-shadow: none !important;
 
   .mat-expansion-panel-header {
-    font-weight: 400;
+    font-weight: 500;
   }
   .mat-expansion-panel-header-title {
     color: #424242 !important;
   }
+}
+
+.panel-icon {
+  padding-right: 20px ;
+}
+
+.red-text {
+  color: #E64A19;
+}
+
+.green-text {
+  color: #388E3C;
+}
+
+.description-panel {
+  padding: 8px 0;
+}
+.description {
+  font-size: 16px;
+  .description-title {
+    color: #D3D1CE;
+    width: 120px;
+    font-weight: 400;
+  }
+  .description-content{
+    width: 120px;
+  }
+}
+
+.total-text {
+  font-size: 24px;
+  padding-bottom: 16px;
+}
+
+.hr{
+  color: #D3D1CE;
 }

@@ -5,7 +5,7 @@ const router = express.Router();
 const db = require('./payment-methods.db');
 
 // Keys
-const paymentMethodsKeys = ['user_id', 'method_name', 'method_type', 'balance', 'cashback_rate', 'cashback_type', 'created_at'];
+const paymentMethodsKeys = ['user_id', 'method_name', 'method_type', 'original_balance', 'cashback_rate', 'cashback_type', 'created_at'];
 
 // Read the Queries SQL file
 const sqlFilePath = path.join(__dirname, 'queries.sql'); // path

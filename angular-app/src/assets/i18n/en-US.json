@@ -29,7 +29,8 @@
       "close": "Close",
       "back": "Back",
       "next": "Next",
-      "create": "CREATE"
+      "create": "CREATE",
+      "apply": "APPLY"
     },
     "unit": {
       "percentage": "%"
@@ -69,7 +70,10 @@
       "account_type": "Account Type",
       "original_balance": "Original Balance",
       "create_account": "Create Account",
+      "edit_account": "Edit Account",
       "delete_account": "Delete Account",
+      "account_type_placeholder": "Select Account Type",
+      "cashback_type_placeholder": "Select Cashback Type",
       "delete_question": "Are you should to delete {{name}}?"
     },
     "transactions": {

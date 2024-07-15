@@ -12,7 +12,7 @@ import { PostService } from '@shared/post.service';
 })
 export class DeleteAccountComponent {
   transPage = 'pages.accounts.';
-  accountData = this._accountService.getAccountData()
+  rowData = this._accountService.getAccountData()
 
   constructor(
     private _accountService: AccountService,
@@ -20,7 +20,7 @@ export class DeleteAccountComponent {
   ){}
 
   deleteAccount(): void {
-    this._postService.sendDelete('paymentMethods', this.accountData.id).subscribe({
+    this._postService.sendDelete('paymentMethods', this.rowData.id).subscribe({
       next: data => {
         console.log("Delete successful!", data);
       },

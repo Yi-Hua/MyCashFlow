@@ -1,4 +1,4 @@
-<h2 mat-dialog-title class="dialog-title">{{ transPage + 'create_account' | translate }}</h2>
+<h2 mat-dialog-title class="dialog-title">{{ transPage + 'edit_account' | translate }}</h2>
 <mat-dialog-content class="dialog-content">
   <form class="account-form" [formGroup]="accountForm" fxLayout="column" fxLayoutAlign="start start">
     <!-- 1. Account Group -->
@@ -13,8 +13,8 @@
       </mat-form-field>
       <mat-form-field class="form-field-lg" appearance="outline">
         <mat-label>{{ transPage + 'account_type' | translate }}</mat-label>
-        <mat-select formControlName="method_type" [placeholder]=" transPage +'cashback_type_placeholder' | translate ">
-          <mat-option *ngFor="let option of methodTypeOption" [value]="option.value">{{ option.text }}</mat-option>
+        <mat-select formControlName="method_type">
+          <mat-option *ngFor="let option of methodTypeOption" [value]="option.value">{{option.text}}</mat-option>
         </mat-select>
         <mat-error *ngIf="accountForm.get('method_type')?.hasError('required')">
           {{ 'general.validators.required' | translate }}
@@ -50,7 +50,7 @@
         </mat-form-field>
         <mat-form-field class="form-field-lg" appearance="outline">
           <mat-label>{{ transPage + 'cashback_type' | translate }}</mat-label>
-          <mat-select formControlName="cashback_type" [placeholder]=" transPage +'cashback_type_placeholder' | translate " required>
+          <mat-select formControlName="cashback_type" [placeholder]="transPage + 'cashback_type_placeholder' | translate"  required>
             <mat-option *ngFor="let option of cashbackTypeOption" [value]="option.value">{{option.text}}</mat-option>
           </mat-select>
           <mat-error *ngIf="accountForm.get('cashback_type')?.hasError('required')">
@@ -65,9 +65,8 @@
 <mat-dialog-actions align="end">
   <button mat-button mat-dialog-close>
     {{ 'general.button.cancel' | translate }}</button>
-
   <button mat-raised-button color="primary"
     [mat-dialog-close]="false" [disabled]="accountForm.invalid"
-    dia-rightBtn (click)="create()">
-    {{ 'general.button.create' | translate }}</button>
+    dia-rightBtn (click)="update()">
+    {{ 'general.button.apply' | translate }}</button>
 </mat-dialog-actions>

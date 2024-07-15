@@ -7,6 +7,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { CreateAccountComponent } from './create-account/create-account.component'
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
 import { AccountService } from './accounts.service';
+import { EditAccountComponent } from './edit-account/edit-account.component';
 
 @Component({
   selector: 'app-accounts',
@@ -51,6 +52,16 @@ export class AccountsComponent implements OnInit{
 
   openCreateDialog(): void {
     const dialogRef = this._dialog.open(CreateAccountComponent, {});
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+      this.getPaymentMethodsData();
+    });
+  }
+
+  openEditDialog(data: { id: number, [key: string]: any }): void {
+    this._accountService.setAccountData(data);
+    const dialogRef = this._dialog.open(EditAccountComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);

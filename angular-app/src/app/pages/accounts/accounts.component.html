@@ -36,7 +36,12 @@
                   </div>
                 </mat-panel-description>
                 <mat-card-actions class="panel-icon">
-                  <button mat-icon-button (click)="openDeleteDialog(acc)" [matTooltip]="transPage + 'delete_account' | translate"> <mat-icon>close</mat-icon> </button>
+                  <button mat-icon-button (click)="openEditDialog(acc)" [matTooltip]="transPage + 'edit_account' | translate">
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                  <button mat-icon-button (click)="openDeleteDialog(acc)" [matTooltip]="transPage + 'delete_account' | translate">
+                    <mat-icon>close</mat-icon>
+                  </button>
                 </mat-card-actions>
               </mat-expansion-panel-header>
               <div class="description-panel">

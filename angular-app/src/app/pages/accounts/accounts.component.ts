@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { SharedModule } from '../../shared/shared.module'
 import { PostService } from '@shared/post.service';
+import { MatDialog } from '@angular/material/dialog';
+import { SharedModule } from '../../shared/shared.module'
+
 import { MethodType, PaymentMethodUnit } from './accounts.model';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { AccountService } from './accounts.service';
 import { CreateAccountComponent } from './create-account/create-account.component'
 import { DeleteAccountComponent } from './delete-account/delete-account.component';
-import { AccountService } from './accounts.service';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 
 @Component({
@@ -18,9 +19,9 @@ import { EditAccountComponent } from './edit-account/edit-account.component';
 })
 export class AccountsComponent implements OnInit{
   transPage = 'pages.accounts.';
-  paymentType = ['cash', 'bank', 'credit_card']
   accountsData: PaymentMethodUnit[] = [];
   methodType = MethodType;
+  methodTypeArray = Object.values(MethodType);
   total: number = 0;
 
   constructor(

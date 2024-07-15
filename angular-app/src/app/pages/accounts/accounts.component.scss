@@ -24,17 +24,16 @@
 
 .description-panel {
   padding: 8px 0;
-}
-.description {
   font-size: 16px;
-  .description-title {
-    color: #D3D1CE;
-    width: 120px;
-    font-weight: 400;
-  }
-  .description-content{
-    width: 120px;
-  }
+  color: #757575;
+}
+
+.description-title {
+  width: 140px;
+  font-weight: 400;
+}
+.description-content{
+  width: 200px;
 }
 
 .total-text {

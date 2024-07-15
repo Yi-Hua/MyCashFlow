@@ -13,12 +13,8 @@
   height: calc(100vh - 64px);
 
   .router-content {
-    display: flex;
+    display: block;
     justify-content: center;
-
-    width: calc(100vw - 168px);
-    margin: 0 64px 0 64px;
-    padding: 20px;
   }
 
   .app-content-margin {

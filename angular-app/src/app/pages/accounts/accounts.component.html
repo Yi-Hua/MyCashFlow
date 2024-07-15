@@ -16,7 +16,7 @@
       <div [class.red-text]="total<0" [class.green-text]="total>=0"> {{ total | number:'1.0-0'}}</div>
     </div>
     <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start">
-      <div *ngFor="let type of paymentType">
+      <div *ngFor="let type of methodTypeArray">
         <mat-tab [label]="transPage + type | translate">
           <mat-accordion class="example-headers-align" multi *ngFor="let acc of accountsData">
             <mat-expansion-panel *ngIf="acc.method_type === type">
@@ -44,14 +44,30 @@
                   </button>
                 </mat-card-actions>
               </mat-expansion-panel-header>
-              <div class="description-panel">
-                <div class="description" fxLayout="row" fxLayoutGap="16px">
-                  <div class="description-title"> {{ transPage + 'account_name' | translate }}:</div>
-                  <div class="description-content">{{ acc.method_name }} </div>
+              <div class="description-panel"  fxLayout="row">
+                <div fxLayout="column" fxLayoutGap="8px">
+                  <div fxLayout="row" fxLayoutGap="16px">
+                    <div class="description-title"> {{ transPage + 'account_name' | translate }}:</div>
+                    <div class="description-content">{{ acc.method_name }} </div>
+                  </div>
+                  <div fxLayout="row" fxLayoutGap="16px">
+                    <div class="description-title"> {{ transPage + 'balance' | translate }}:</div>
+                    <div class="description-content"> {{ 'general.common.twd' | translate }} {{ acc.original_balance | number:'1.0-0' }} </div>
+                  </div>
+                  <div fxLayout="row" fxLayoutGap="16px">
+                    <div class="description-title"> {{ transPage + 'original_balance' | translate }}:</div>
+                    <div class="description-content"> {{ 'general.common.twd' | translate }} {{ acc.original_balance | number:'1.0-0' }} </div>
+                  </div>
                 </div>
-                <div class="description" fxLayout="row" fxLayoutGap="16px">
-                  <div class="description-title"> {{ transPage + 'balance' | translate }}:</div>
-                  <div class="description-content"> {{ 'general.common.twd' | translate }} {{ acc.original_balance | number:'1.0-0' }} </div>
+                <div fxLayout="column" *ngIf="type===methodType.CreditCard" fxLayoutGap="8px">
+                  <div fxLayout="row" fxLayoutGap="16px">
+                    <div class="description-title"> {{ transPage + 'cashback_rate' | translate }}:</div>
+                    <div class="description-content">{{ acc.cashback_rate }} {{ 'general.unit.percentage' | translate }}</div>
+                  </div>
+                  <div fxLayout="row" fxLayoutGap="16px">
+                    <div class="description-title"> {{ transPage + 'cashback_type' | translate }}:</div>
+                    <div class="description-content">{{ transPage + acc.cashback_type | translate }} </div>
+                  </div>
                 </div>
               </div>
             </mat-expansion-panel>

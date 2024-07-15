@@ -16,6 +16,30 @@ $your-app-theme: define.define-theme((
   ),
 ));
 
+@media (max-width: 600px) {
+  .router-content {
+    font-size: 14px;
+    width: calc(100vw - 24px);
+    margin: 0 12px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .router-content {
+    font-size: 18px;
+    width: calc(100vw - 160px);
+    margin: 0 80px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .router-content {
+    font-size: 20px;
+    width: calc(100vw - 400px) ;
+    margin: 0 200px;
+  }
+}
+
 // 應用主到根元素
 :host {
   // @include mat.angular-material-theme($your-app-theme);
@@ -33,10 +57,8 @@ body {
 }
 
 .mat-mdc-card {
-  width: calc(100vw - 98px);
   min-height: 200px;
   overflow-x: auto;
-  background-color: #fafafa;
 
   .mat-mdc-card-header {
     height: 56px;

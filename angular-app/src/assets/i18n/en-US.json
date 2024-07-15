@@ -69,7 +69,8 @@
       "account_type": "Account Type",
       "original_balance": "Original Balance",
       "create_account": "Create Account",
-      "delete_account": "Delete Account"
+      "delete_account": "Delete Account",
+      "delete_question": "Are you should to delete {{name}}?"
     },
     "transactions": {
       "title": "Transactions",

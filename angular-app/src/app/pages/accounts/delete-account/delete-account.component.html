@@ -1,0 +1,9 @@
+<h2 mat-dialog-title class="dialog-title">{{ transPage + 'delete_account' | translate }}</h2>
+<mat-dialog-content class="dialog-content">
+  <div>{{ transPage + 'delete_question' | translate: { name: accountData.method_name } }}</div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{ 'general.button.cancel' | translate }}</button>
+  <button mat-raised-button color="primary" dia-rightBtn
+    [mat-dialog-close]="false" (click)="deleteAccount()">{{ 'general.button.delete' | translate }}</button>
+</mat-dialog-actions>
